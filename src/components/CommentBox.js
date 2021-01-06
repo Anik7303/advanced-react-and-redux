@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { saveComment, fetchComments } from "../actions";
+import { useRequireAuth } from "../hooks";
 
 function CommentBox() {
     const [comment, setComment] = useState("");
     const dispatch = useDispatch();
+
+    useRequireAuth();
 
     const handleSubmit = (event) => {
         event.preventDefault();
